@@ -181,24 +181,24 @@ This project requires API credentials:
 1. Install required packages
    `pip install -r requirements.txt`
    
-4. Create a `.env` file based on `.env.example` before running scripts.
+2. Create a `.env` file based on `.env.example` before running scripts.
 
-1. Download daily charts  
+3. Download daily charts  
    `python spotify_charts_csv_downloader.py`
 
-2. Combine CSV files  
+4. Combine CSV files  
    `python combine_charts.py`
 
-3. Enrich with Spotify metadata  
+5. Enrich with Spotify metadata  
    `python spotify_enrichment.py`
 
-4. Fetch lyrics  
+6. Fetch lyrics  
    `python genius_lyrics_enrichment.py`
 
-5. Run RoBERTa emotion scoring (Optional)  
+7. Run RoBERTa emotion scoring (Optional)  
    `python emotion_scorer_roberta.py`
 
-The final LLM-based emotion classification (Gemini) was performed externally via the AI() function in Google Sheets is documented in the methodology section.
+The final LLM-based emotion classification (Gemini) was performed externally via the AI() function in Google Sheets.
 
 ---
 
