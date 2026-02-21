@@ -171,14 +171,34 @@ It demonstrates how structured data pipelines combined with LLM-assisted classif
 
 ---
 
-## 🔐 Credentials & Setup
+## 🔐 Setup & Execution Guide
 
 This project requires API credentials:
 
 - Spotify Developer API  
 - Genius API  
 
-Create a `.env` file based on `.env.example` before running scripts.
+1. Install required packages
+   `pip install -r requirements.txt`
+   
+4. Create a `.env` file based on `.env.example` before running scripts.
+
+1. Download daily charts  
+   `python spotify_charts_csv_downloader.py`
+
+2. Combine CSV files  
+   `python combine_charts.py`
+
+3. Enrich with Spotify metadata  
+   `python spotify_enrichment.py`
+
+4. Fetch lyrics  
+   `python genius_lyrics_enrichment.py`
+
+5. Run RoBERTa emotion scoring (Optional)  
+   `python emotion_scorer_roberta.py`
+
+The final LLM-based emotion classification (Gemini) was performed externally via the AI() function in Google Sheets is documented in the methodology section.
 
 ---
 
