@@ -77,7 +77,7 @@ The model frequently interpreted lyrics at face value, struggling with:
 Example:
 “Cruel Summer” – Taylor Swift  
 The model classified it primarily as Disgust/Anger due to negative lexical tokens such as “cruel”.  
-However, the song is narratively about anxious romantic longing — closer to Fear + Joy than hostility.
+However, the song is narratively about anxious romantic longing, closer to Fear/Joy than hostility.
 
 Conclusion:
 Even transformer-based classifiers may struggle with figurative language and contextual nuance in music.
