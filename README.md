@@ -42,27 +42,76 @@ The project is structured as a reproducible multi-stage data pipeline:
 - Cleaned section headers and embedded metadata  
 - Standardised text for NLP processing  
 
-### 5️⃣ Emotion Classification (From Lexicons to LLMs)
+### 5️⃣ Emotion Classification: From RoBERTa to LLM Reasoning
 
-Lyrics were translated to English (where necessary) and classified into one of six discrete emotion categories based on **Paul Ekman’s Basic Emotions Framework**:
+To quantify the emotional composition of global hit songs, I experimented with multiple NLP approaches before finalising the framework.
 
-- Joy  
-- Sadness  
-- Anger  
-- Fear  
-- Surprise  
-- Disgust  
+---
 
-Classification was performed using **Google’s Gemini large language model via Google Sheets AI (February 2025 release version)**.
+#### 🧪 Phase 1: Transformer-Based Emotion Classification (RoBERTa)
 
-To ensure consistency and reduce variance:
+All lyrics were passed through the Hugging Face model:
 
-- Output was strictly constrained to the six predefined categories  
-- Each track received a single dominant emotion label  
-- Manual validation was conducted to verify classification quality  
-- Final labeled dataset was stored locally for structured analysis  
+**j-hartmann/emotion-english-distilroberta-base**
 
-This hybrid approach allowed scalable emotion modeling while maintaining controlled categorical outputs.
+This model predicts probabilities across seven emotion categories:
+- Anger
+- Disgust
+- Fear
+- Joy
+- Neutral
+- Sadness
+- Surprise
+
+While technically robust, manual validation revealed critical limitations.
+
+The model frequently interpreted lyrics at face value, struggling with:
+- Sarcasm
+- Metaphor
+- Narrative framing
+- Emotional tension within romantic themes
+
+Example:
+
+“Cruel Summer” – Taylor Swift  
+The model classified it primarily as Disgust/Anger due to negative lexical tokens (“cruel”, tension-based phrases).  
+However, the song is narratively about anxious romantic longing — closer to Fear + Joy than hostility.
+
+Conclusion:
+
+Although transformer-based, the model lacked sufficient contextual understanding of complex lyrical storytelling.
+
+---
+
+#### 🤖 Phase 2: Constrained LLM-Assisted Classification (Gemini)
+
+To improve contextual accuracy, I pivoted to a large language model approach using Google Gemini (Google Sheets AI, February 2025 version).
+
+Workflow:
+
+1. Lyrics translated to English (where necessary)
+2. Emotion classification constrained to Paul Ekman’s six core emotions:
+   - Joy
+   - Sadness
+   - Anger
+   - Fear
+   - Surprise
+   - Disgust
+3. Single dominant emotion per track
+4. Manual validation performed to verify coherence
+5. Final labeled dataset stored locally for structured analysis
+
+By constraining output categories and validating results, this hybrid approach significantly improved narrative-level interpretation compared to the pretrained RoBERTa model.
+
+---
+
+### 🧠 Why This Matters
+
+This experimentation highlights an important analytical insight:
+
+Even modern transformer models may struggle with figurative language and cultural context in music.
+
+Context-aware LLM reasoning, when constrained and validated properly, can outperform static pretrained classifiers in nuanced domains like lyrical emotion analysis.
 
 ---
 
