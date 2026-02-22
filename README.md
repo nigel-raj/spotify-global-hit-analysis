@@ -206,7 +206,7 @@ The final LLM-based emotion classification (Gemini) was performed externally via
 
 The enriched and emotion-labeled dataset was used to generate the analytical infographic:
 
-![Spotify Hit DNA](assets/decoding-the-dna.png)
+![Spotify Hit DNA](assets/decoding_spotify_hit.png)
 
 ---
 
