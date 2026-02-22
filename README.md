@@ -178,8 +178,10 @@ This project requires API credentials:
 - Spotify Developer API  
 - Genius API  
 
-1. Install required packages
-   `pip install -r requirements.txt`
+1. Install the required packages:
+```bash
+pip install -r requirements.txt
+```
    
 2. Create a `.env` file based on `.env.example` before running scripts.
 
